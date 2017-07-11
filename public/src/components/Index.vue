@@ -18,7 +18,7 @@
           <div class="input-group">
             <input type="text" class="form-control" placeholder="New Task" v-on:keyup.enter="createTask" v-model="newtask.name" autofocus/>
             <span class="input-group-btn">
-						<button class="btn btn-primary" type="button" v-on:click="createTask">Create</button>
+						<button class="primary" type="button" v-on:click="createTask">Create</button>
 					</span>
           </div>
         </div>
@@ -27,14 +27,14 @@
           <div v-for="task in tasks" style="margin-bottom: 5px;">
             <div v-if="task.done===false" class="input-group">
 						<span class="input-group-btn">
-							<button class="btn btn-info" type="button" :disabled="task.done===true" v-on:click="updateTask(task, true)"><i class="fa fa-check" aria-hidden="true"></i></button>
+							<button class="secondary" type="button" :disabled="task.done===true" v-on:click="updateTask(task, true)"><i>done</i></button>
 						</span>
 
               <input type="text" class="form-control" :disabled="task.done===true" v-model="task.name" v-on:keyup.enter="updateTask(task)"/>
 
               <span class="input-group-btn">
-							<button class="btn btn-info" type="button" v-on:click="updateTask(task)"><i class="fa fa-edit" aria-hidden="true"></i></button>
-							<button class="btn btn-danger" type="button" v-on:click="deleteTask(task.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+							<button class="secondary" type="button" v-on:click="updateTask(task)"><i>create</i></button>
+							<button class="red" type="button" v-on:click="deleteTask(task.id)"><i>delete</i></button>
 						</span>
             </div>
           </div>
@@ -44,14 +44,14 @@
           <div v-for="task in tasks" style="margin-bottom: 5px;">
             <div v-if="task.done===true" class="input-group">
 						<span class="input-group-btn">
-							<button class="btn btn-info" type="button" :disabled="task.done===true" v-on:click="updateTask(task, true)"><i class="fa fa-check" aria-hidden="true"></i></button>
+							<button class="secondary" type="button" :disabled="task.done===true" v-on:click="updateTask(task, true)"><i>done</i></button>
 						</span>
 
               <input type="text" class="form-control" :disabled="task.done===true" v-model="task.name" v-on:keyup.enter="updateTask(task)"/>
 
               <span class="input-group-btn">
-							<button class="btn btn-info" type="button" :disabled="task.done===true" v-on:click="updateTask(task)"><i class="fa fa-edit" aria-hidden="true"></i></button>
-							<button class="btn btn-danger" type="button" v-on:click="deleteTask(task.id)"><i class="fa fa-trash-o" aria-hidden="true"></i></button>
+							<button class="secondary" type="button" :disabled="task.done===true" v-on:click="updateTask(task)"><i>create</i></button>
+							<button class="red" type="button" v-on:click="deleteTask(task.id)"><i>delete</i></button>
 						</span>
             </div>
           </div>
@@ -124,3 +124,14 @@
   }
 
 </script>
+
+<style>
+  .input-group input[type="text"]{
+    padding-left: 10px;
+    font-size: 1.3rem;
+  }
+  button{
+    font-size: 1.3rem;
+    min-height: 3.3rem;
+  }
+</style>

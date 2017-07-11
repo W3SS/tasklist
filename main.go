@@ -13,7 +13,7 @@ func main() {
 	migrate(db)
 
 	e := echo.New()
-	e.Static("/", "public/cordova/platforms/android/assets/www")
+	e.Static("/", "public/dist")
 	e.GET("/tasks", handlers.GetTasks(db))
 	e.POST("/task", handlers.PostTask(db))
 	e.PUT("/task", handlers.PutTask(db))
